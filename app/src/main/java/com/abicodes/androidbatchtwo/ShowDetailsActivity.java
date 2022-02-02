@@ -12,10 +12,15 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,7 +34,8 @@ public class ShowDetailsActivity extends AppCompatActivity {
     Button btn_update,btn_logout;
     FirebaseAuth mAuth;
     FirebaseFirestore fstore;
-    String Uid;
+    String Uid, name,email;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +50,14 @@ public class ShowDetailsActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         Uid = mAuth.getCurrentUser().getUid();
+        firebaseUser = mAuth.getCurrentUser();
 
         getData();
 
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShowDetailsActivity.this);
                 builder.setTitle("Re-Authentication");
                 builder.setMessage("Enter your password");
@@ -62,7 +70,6 @@ public class ShowDetailsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         String mPassword = input.getText().toString();
                         ReAuthentication(mPassword);
-
                     }
                 });
 
@@ -74,13 +81,6 @@ public class ShowDetailsActivity extends AppCompatActivity {
                 });
                 builder.show();
 
-
-                String name = et_name.getText().toString();
-                String email = et_email.getText().toString();
-
-                Map<String,Object> user = new HashMap<>();
-                user.put("name",name);
-                user.put("email",email);
             }
         });
 
@@ -96,7 +96,40 @@ public class ShowDetailsActivity extends AppCompatActivity {
     }
 
     private void ReAuthentication(String mPassword) {
+        AuthCredential credential = EmailAuthProvider.getCredential(email,mPassword);
+        firebaseUser.reauthenticate(credential).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                updateDetails();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ShowDetailsActivity.this, "Your password is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
+    private void updateDetails() {
+        String user_name = et_name.getText().toString();
+        String user_email = et_email.getText().toString();
+
+        HashMap<String,Object> user = new HashMap<>();
+        user.put("name",user_name);
+        user.put("email",user_email);
+
+        firebaseUser.updateEmail(user_email).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                fstore.collection("Users").document(Uid).update(user);
+                Toast.makeText(ShowDetailsActivity.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ShowDetailsActivity.this, "Details not Updated", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void getData() {
@@ -106,18 +139,17 @@ public class ShowDetailsActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-                String name = (String) documentSnapshot.getData().get("name");
-                String email = (String) documentSnapshot.getData().get("email");
+                name = (String) documentSnapshot.getData().get("name");
+                email = (String) documentSnapshot.getData().get("email");
 
                 setData(name,email);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(ShowDetailsActivity.this, "Can not get the user details", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private void setData(String name, String email) {
