@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "570386426906",
+    "project_id": "androidbatchtwo",
+    "storage_bucket": "androidbatchtwo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570386426906:android:6e3c52cee62b8b019ef5a3",
+        "android_client_info": {
+          "package_name": "com.abicodes.androidbatchtwo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570386426906-gn730lpbj5sicus09bans3rr1e9tkemk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABMaJnoGVFQpeL7YWEEPg640Abg-N9ICw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570386426906-gn730lpbj5sicus09bans3rr1e9tkemk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

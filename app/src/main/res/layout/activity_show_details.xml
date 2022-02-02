@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue"
+    tools:context=".ShowDetailsActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="284dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    android:layout_marginTop="133dp"-->
+
+    <EditText
+        android:id="@+id/et_name"
+        style="@style/inputs"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Enter your name"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/et_email"
+        style="@style/inputs"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="@string/enter_your_email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/relativeLayout"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="65dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/et_new_name">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_password"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="2dp"-->
+<!--            android:background="@drawable/edit_text"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/montserrat"-->
+<!--            android:hint="@string/enter_your_password"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:paddingLeft="15dp"-->
+<!--            android:textSize="15sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/show_pass_btn"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:alpha=".5"-->
+<!--            android:padding="5dp"-->
+<!--            android:src="@drawable/ic_visibility" />-->
+
+<!--    </RelativeLayout>-->
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/relativeLayout2"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="65dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_re_password"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="2dp"-->
+<!--            android:background="@drawable/edit_text"-->
+<!--            android:ems="10"-->
+<!--            android:fontFamily="@font/montserrat"-->
+<!--            android:hint="Re-enter your password"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:paddingLeft="15dp"-->
+<!--            android:textSize="15sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/show_pass_btn2"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:alpha=".5"-->
+<!--            android:padding="5dp"-->
+<!--            android:src="@drawable/ic_visibility" />-->
+
+<!--    </RelativeLayout>-->
+    <Button
+        android:id="@+id/bt_logout"
+        style="@style/prof_button"
+        android:text="log out"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_update"
+        app:layout_constraintEnd_toStartOf="@id/bt_update"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bt_update"/>
+
+    <Button
+        android:id="@+id/bt_update"
+        style="@style/prof_button"
+        android:layout_marginTop="100dp"
+        android:text="update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_logout"
+        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

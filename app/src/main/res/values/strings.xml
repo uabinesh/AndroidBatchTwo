@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AndroidBatchTwo</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="login">login</string>
+    <string name="don_t_you_have_an_account">Don\'t you have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="signup">signup</string>
+    <string name="forget_password2">Forget Password</string>
+    <string name="desc">Enter the email address associated with your account</string>
+    <string name="desc_2">We will email you a reset code to your inbox to reset your password</string>
+    <string name="change_password">Change Password</string>
+    <string name="desc_4">Please input a 8-24 characters with one capital letter, one simple letter, one number and one special character password here</string>
+</resources>
