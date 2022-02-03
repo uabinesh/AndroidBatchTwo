@@ -21,6 +21,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="link">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/butnBlue</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="inputs">
         <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">60dp</item>

@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidBatchTwo">
         <activity
-            android:name=".ShowDetailsActivity"
+            android:name=".UserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".on_boarding.ShowDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".sharedpref.SignActivity"
@@ -31,13 +34,13 @@
             android:name=".VerifyActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgetPasswordActivity"
+            android:name=".on_boarding.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".on_boarding.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".on_boarding.SignUpActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

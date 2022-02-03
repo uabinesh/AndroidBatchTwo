@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.abicodes.androidbatchtwo.on_boarding.LoginActivity;
+
 public class ChangePwdActivity extends AppCompatActivity {
 
     EditText et_password,et_re_password;
@@ -120,7 +122,7 @@ public class ChangePwdActivity extends AppCompatActivity {
 
     private void signin_user() {
         Toast.makeText(ChangePwdActivity.this,"Your account password changed",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(ChangePwdActivity.this,LoginActivity.class);
+        Intent intent = new Intent(ChangePwdActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

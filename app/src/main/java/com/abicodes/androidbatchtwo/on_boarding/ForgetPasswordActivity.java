@@ -1,4 +1,4 @@
-package com.abicodes.androidbatchtwo;
+package com.abicodes.androidbatchtwo.on_boarding;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.abicodes.androidbatchtwo.R;
+import com.abicodes.androidbatchtwo.VerifyActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -67,7 +69,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = new Intent(ForgetPasswordActivity.this,VerifyActivity.class);
+        Intent intent = new Intent(ForgetPasswordActivity.this, VerifyActivity.class);
         intent.putExtra("Email",email);
     }
 

@@ -1,4 +1,4 @@
-package com.abicodes.androidbatchtwo;
+package com.abicodes.androidbatchtwo.on_boarding;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -7,17 +7,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abicodes.androidbatchtwo.FirstScreenActivity;
+import com.abicodes.androidbatchtwo.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,11 +27,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class ShowDetailsActivity extends AppCompatActivity {
 
     EditText et_name,et_email;
+    TextView tv_user_list;
     Button btn_update,btn_logout;
     FirebaseAuth mAuth;
     FirebaseFirestore fstore;
@@ -46,6 +47,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
         et_email = findViewById(R.id.et_email);
         btn_update = findViewById(R.id.bt_update);
         btn_logout = findViewById(R.id.bt_logout);
+        tv_user_list = findViewById(R.id.tv_user_list);
 
         mAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -53,6 +55,14 @@ public class ShowDetailsActivity extends AppCompatActivity {
         firebaseUser = mAuth.getCurrentUser();
 
         getData();
+
+        tv_user_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowDetailsActivity.this, FirstScreenActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +98,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                Intent intent = new Intent(ShowDetailsActivity.this,FirstScreenActivity.class);
+                Intent intent = new Intent(ShowDetailsActivity.this, FirstScreenActivity.class);
                 startActivity(intent);
                 finish();
             }

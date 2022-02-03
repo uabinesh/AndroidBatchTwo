@@ -9,6 +9,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import com.abicodes.androidbatchtwo.on_boarding.LoginActivity;
+import com.abicodes.androidbatchtwo.on_boarding.ShowDetailsActivity;
+import com.abicodes.androidbatchtwo.on_boarding.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class FirstScreenActivity extends AppCompatActivity {

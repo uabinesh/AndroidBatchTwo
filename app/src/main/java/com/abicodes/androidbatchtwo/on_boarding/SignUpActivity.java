@@ -1,4 +1,4 @@
-package com.abicodes.androidbatchtwo;
+package com.abicodes.androidbatchtwo.on_boarding;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abicodes.androidbatchtwo.MainActivity;
+import com.abicodes.androidbatchtwo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -143,7 +145,7 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
 
                             //start next activity
-                            Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                             startActivity(intent);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
