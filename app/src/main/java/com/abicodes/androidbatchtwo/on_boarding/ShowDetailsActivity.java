@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.abicodes.androidbatchtwo.FirstScreenActivity;
 import com.abicodes.androidbatchtwo.R;
+import com.abicodes.androidbatchtwo.UserListActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthCredential;
@@ -25,6 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.HashMap;
 
@@ -59,7 +61,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
         tv_user_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowDetailsActivity.this, FirstScreenActivity.class);
+                Intent intent = new Intent(ShowDetailsActivity.this, UserListActivity.class);
                 startActivity(intent);
             }
         });
