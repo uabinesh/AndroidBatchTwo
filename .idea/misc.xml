@@ -15,7 +15,8 @@
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/drawable/ic_visibility_off.xml" value="0.20347222222222222" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/drawable/out_btn.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/drawable/out_butn.xml" value="0.2552083333333333" />
-        <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_address.xml" value="0.24444444444444444" />
+        <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/drawable/out_light_btn.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_address.xml" value="0.25" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_change_pwd.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_contact.xml" value="0.23506944444444444" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_first_screen.xml" value="0.24444444444444444" />
@@ -23,7 +24,7 @@
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_login.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_name.xml" value="0.24444444444444444" />
-        <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_show_details.xml" value="0.33" />
+        <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_show_details.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_sign.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/Abineshh/AndroidStudioProjects/AndroidBatchTwo/app/src/main/res/layout/activity_user_list.xml" value="0.24444444444444444" />

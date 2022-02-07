@@ -54,4 +54,14 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="prof_button_out">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:background">@drawable/out_light_btn</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/butnBlue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
