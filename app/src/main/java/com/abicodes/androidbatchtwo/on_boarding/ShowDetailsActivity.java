@@ -1,16 +1,21 @@
 package com.abicodes.androidbatchtwo.on_boarding;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,17 +33,20 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class ShowDetailsActivity extends AppCompatActivity {
 
     EditText et_name,et_email;
-    TextView tv_user_list;
-    Button btn_update,btn_logout;
+    TextView tv_user_list,tv_add_pic;
+    Button btn_update,btn_logout,btn_upload;
     FirebaseAuth mAuth;
     FirebaseFirestore fstore;
     String Uid, name,email;
     FirebaseUser firebaseUser;
+    Bitmap image;
+    ImageView view_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,9 @@ public class ShowDetailsActivity extends AppCompatActivity {
         btn_update = findViewById(R.id.bt_update);
         btn_logout = findViewById(R.id.bt_logout);
         tv_user_list = findViewById(R.id.tv_user_list);
+        tv_add_pic = findViewById(R.id.tv_add_pic);
+        btn_upload = findViewById(R.id.bt_upload);
+        view_img = findViewById(R.id.iv_profile);
 
         mAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -105,6 +116,69 @@ public class ShowDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        tv_add_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final CharSequence[] option = {"Take Picture","From Gallery","Cancel"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShowDetailsActivity.this);
+                builder.setTitle("Select your option");
+                builder.setItems(option, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case 0:
+                                Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                startActivityForResult(takePicture,0);
+                                break;
+                            case 1:
+                                Intent picPicture = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                startActivityForResult(picPicture,1);
+                                break;
+                            case 2:
+                                dialog.dismiss();
+                                break;
+                        }
+                    }
+                });
+                builder.show();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode!=RESULT_CANCELED){
+            switch (requestCode){
+                case 0:
+                    if(resultCode == RESULT_OK && data!=null){
+                        image = (Bitmap) data.getExtras().get("data");
+                        view_img.setImageBitmap(image);
+                    }
+                    else{
+                        Toast.makeText(ShowDetailsActivity.this, "Please try again", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case 1:
+                    if(resultCode==RESULT_OK && data!=null){
+                        Uri img_path = data.getData();
+                        try {
+                            image = MediaStore.Images.Media.getBitmap(ShowDetailsActivity.this.getContentResolver(),img_path);
+                            view_img.setImageBitmap(image);
+                        }
+                        catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                    else{
+                        Toast.makeText(ShowDetailsActivity.this, "Please try again", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+            }
+        }else{
+            Toast.makeText(ShowDetailsActivity.this, "Please try again", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void ReAuthentication(String mPassword) {
